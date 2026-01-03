@@ -9,6 +9,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 import org.hibernate.cache.spi.support.AbstractReadWriteAccess;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -27,6 +28,9 @@ public class Category {
 
     @Column
     @Getter @Setter private String description;
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "category", orphanRemoval = true)
+    @Getter @Setter private List<Item> itemList;
 
     @Column
     @Getter @Setter @CreationTimestamp

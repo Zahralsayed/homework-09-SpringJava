@@ -40,4 +40,10 @@ public class Category {
     @Getter @Setter @UpdateTimestamp
     private LocalDateTime updatedAt;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    @JsonIgnore
+    @Getter @Setter
+    private User user;
+
 }

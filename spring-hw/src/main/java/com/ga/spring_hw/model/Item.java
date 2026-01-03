@@ -33,4 +33,10 @@ public class Item {
     @JoinColumn(name = "category_id")
     private Category category;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    @JsonIgnore
+    @Getter @Setter
+    private User user;
+
 }
